@@ -6,7 +6,7 @@ const fetchStories = async () => {
       method: "POST",
     });
 
-    const response = await fetch(`http://localhost:3000/story/${storyId}`, {
+    const response = await fetch(` https://strapi-backend-qanu.onrender.com/story/${storyId}`, {
       method: "GET",
     });
     const data = await response.json();
@@ -71,7 +71,7 @@ const displayStories = (post) => {
 const fetchMostViewedStories = async () => {
   try {
     const response = await fetch(
-      `http://localhost:3000/story?sort=-views&limit=5`,
+      ` https://strapi-backend-qanu.onrender.com/story?sort=-views&limit=5`,
       {
         method: "GET",
       }
