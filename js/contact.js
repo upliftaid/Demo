@@ -1,3 +1,4 @@
+console.log("Using the correct contact.js");
 document.getElementById("contact-form").addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -13,7 +14,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer YOUR_STRAPI_API_TOKEN" // If required
+          "Authorization": "Bearer STRAPI_API_TOKEN" // If required
         },
         body: JSON.stringify({ data: formData }), // Strapi expects data to be nested
       });

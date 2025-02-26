@@ -17,7 +17,7 @@ document
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer YOUR_STRAPI_API_TOKEN", // Replace with your actual Strapi API token
+          "Authorization": "Bearer STRAPI_API_TOKEN", // Replace with your actual Strapi API token
         },
         body: JSON.stringify({ data: formData }), // Strapi requires data to be wrapped inside an object
       });
