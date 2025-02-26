@@ -14,17 +14,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const upload = multer({ dest: "uploads/" });
 
-const allowedOrigins = ["https://upliftaid.org", "http://localhost:3000"];
-
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "https://upliftaid.org"
   })
 );
 
@@ -32,7 +24,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/posts", async (req, res) => {
+app.get("/posts", async (res) => {
   try {
     const response = await axios.get(
       `${process.env.STRAPI_API_URL}/api/blogs?populate=*`,
@@ -138,7 +130,7 @@ app.post("/posts/:id/view", async (req, res) => {
   }
 });
 
-app.get("/story", async (req, res) => {
+app.get("/story", async (res) => {
   try {
     const response = await axios.get(
       `${process.env.STRAPI_API_URL}/api/success-stories?populate=*`,
@@ -225,7 +217,7 @@ app.post("/story/:id/view", async (req, res) => {
   }
 });
 
-app.get("/fundraisers", async (req, res) => {
+app.get("/fundraisers", async (res) => {
   try {
     const response = await axios.get(
       `${process.env.STRAPI_API_URL}/api/fundraisers?populate=*`,
@@ -331,7 +323,7 @@ app.post("/volunteer", async (req, res) => {
   }
 });
 
-app.get("/career", async (req, res) => {
+app.get("/career", async (res) => {
   try {
     const response = await axios.get(
       `${process.env.STRAPI_API_URL}/api/careers?populate=*`,
